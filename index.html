@@ -286,7 +286,66 @@
                   <p class="title-text">Let's Work Together!</p>
                </div>
                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                  
+                   <form
+                      id="contact-form"
+                      action="https://formspree.io/f/xeeqnowy"
+                      method="POST"
+                      class="contact-form"
+                    >
+                      <!-- Email subject -->
+                      <input type="hidden" name="_subject" value="New message from kyleshive.com" />
+
+                      <!-- Honeypot (spam protection) -->
+                      <input type="text" name="_gotcha" style="display:none">
+
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                            class="form-control"
+                          >
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                            class="form-control"
+                          >
+                        </div>
+
+                        <div class="col-md-12">
+                          <textarea
+                            name="message"
+                            placeholder="Tell me about your project..."
+                            rows="6"
+                            required
+                            class="form-control"
+                          ></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-common">
+                            Send Message
+                          </button>
+                        </div>
+
+                        <div class="col-md-12">
+                          <p id="form-success" class="form-success">
+                            ✅ Thanks! I’ll be in touch shortly.
+                          </p>
+                          <p id="form-error" style="display:none; margin-top:15px;">
+                            ❌ Something went wrong. Please try again or email me directly.
+                          </p>
+                        </div>
+                      </div>
+                    </form>
+
                </div>
             </div>
          </div>
@@ -351,6 +410,44 @@
          var spy = new Gumshoe('#navbar-nav a', {
             nested: true
          });
+      </script>
+      
+         <!-- Prevents page redirect -->
+
+         <!-- Shows a friendly success message -->
+
+         <!-- Works perfectly on GitHub Pages -->
+      <script>
+      (function () {
+        const form = document.getElementById("contact-form");
+        if (!form) return;
+
+        const success = document.getElementById("form-success");
+        const error = document.getElementById("form-error");
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          success.style.display = "none";
+          error.style.display = "none";
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" }
+            });
+
+            if (res.ok) {
+              form.reset();
+              success.style.display = "block";
+            } else {
+              error.style.display = "block";
+            }
+          } catch (err) {
+            error.style.display = "block";
+          }
+        });
+      })();
       </script>
 
    </body>

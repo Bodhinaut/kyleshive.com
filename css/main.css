@@ -1983,3 +1983,65 @@ footer h4 {
           color: #1b1b1b;
         }
     }
+
+        /* Contact form spacing */
+    .contact-form .form-control {
+      margin-bottom: 20px;
+    }
+
+    /* Placeholder text styling */
+    .contact-form ::placeholder {
+      color: #555;
+      font-weight: 500;
+      opacity: 1; /* override browser default fade */
+    }
+
+    /* Success message styling */
+    .form-success {
+      display: none;
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+
+/*    Contact form input override*/
+/* Contact form placeholder styling — force bold & readable */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #666;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: black;
+  opacity: 1;
+}
+
+/* Chrome / Edge / Safari */
+.contact-form input::-webkit-input-placeholder,
+.contact-form textarea::-webkit-input-placeholder {
+  color: #666;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: black;
+  opacity: 1;
+}
+
+/* Firefox */
+.contact-form input::-moz-placeholder,
+.contact-form textarea::-moz-placeholder {
+  color: #666;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: black;
+  opacity: 1;
+}
+
+/* IE / old Edge (just in case) */
+.contact-form input:-ms-input-placeholder,
+.contact-form textarea:-ms-input-placeholder {
+  color: #666;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: black;
+}
