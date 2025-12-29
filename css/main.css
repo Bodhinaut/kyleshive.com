@@ -2045,3 +2045,7 @@ footer h4 {
   font-size: 0.75rem;
   color: black;
 }
+
+.contact .btn {
+    font-size: 11pt;
+}
